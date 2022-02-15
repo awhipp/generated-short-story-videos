@@ -31,5 +31,6 @@ jobs:
       env: # Or as an environment variable
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        FONT_TYPE: ${{ secrets.FONT_TYPE }}
       run: |
         python app.py
