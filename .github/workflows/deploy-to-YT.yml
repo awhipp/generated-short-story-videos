@@ -22,6 +22,8 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
+        sudo apt install ttf-mscorefonts-installer
+        fc-list
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Generate and Deploy to YT
