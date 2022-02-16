@@ -15,7 +15,7 @@ load_dotenv()
 
 client_id = os.environ['CLIENT_ID']
 client_secret = os.environ['CLIENT_SECRET']
-font = os.environ['FONT_TYPE'] or 'arial.ttf'
+font_type = os.environ['FONT_TYPE'] or 'arial.ttf'
 
 with open('temp_credentials.json') as f:
     newText=f.read().replace('<CLIENT_ID>', client_id).replace('<CLIENT_SECRET>', client_secret)
@@ -60,7 +60,7 @@ Configuration:
 --CMAP=%s
 --Debug Enabled=%s
 --Font=%s
-""" % (octaves, seed, cmap, debugging, font))
+""" % (octaves, seed, cmap, debugging, font_type))
 
 def generate_background(octaves, seed):
     print('Generating Background...')
@@ -113,10 +113,10 @@ def update_title_card(title, author):
     image = Image.open('image.png')
     new_image = image.resize((1920, 1080))
     draw = ImageDraw.Draw(new_image)
-    font = ImageFont.truetype(font, 100)
+    font = ImageFont.truetype(font_type, 100)
     w, h = font.getsize(title)
     draw.text(((1920-w)/2,(1080-h)/2), title, font=font, fill="white", stroke_width=5, stroke_fill='black')
-    font = ImageFont.truetype(font, 70)
+    font = ImageFont.truetype(font_type, 70)
     draw.text(((1920-w)/2,((1080-h)/2) + 90), author, font=font, fill="white", stroke_width=5, stroke_fill='black')
     new_image.save('image.png')
 
